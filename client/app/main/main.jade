@@ -1,0 +1,22 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+.container-fluid
+  .row
+    .col-lg-3
+      h2 Questions
+      ul.nav.nav-pills.nav-stacked
+        li.active
+          a(href='#') How do I deduct my grandmother?
+        li
+          a(href='#') Where is my refund? How long does it take?
+        li
+          a(href='#') Do you want to grab a coffee?
+
+    .col-lg-9
+      h1.page-header Features:
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
+        li
+          a(href='#', tooltip='{{thing.info}}')
+            | {{thing.name}}
+
+      #pusher-chat-widget
