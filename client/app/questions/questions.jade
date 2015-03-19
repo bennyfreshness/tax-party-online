@@ -1,10 +1,17 @@
 .chat-room
   .question
-    p.label.label-warning Question
+    p
+      span.label.label-warning Question
     h1 {{question.subject}}
     p {{question.details}}
 
-  | This is the questions view
-  {{id}}
-
-  #pusher-chat-widget
+  .chat(ng-controller='ChatCtrl')
+    .message.media(ng-repeat='message in messages')
+      .media-left
+        img.avatar(ng-src='{{message.user.avatar_url}}')
+      .media-body(ng-class='{answer: message.type == "answer"}' )
+        span.label.label-success.answer-label Answer
+        p.chat-meta
+          strong {{message.user.display_name}}
+          small.text-muted  {{message.created_at}}
+        p {{message.body}}

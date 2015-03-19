@@ -15,7 +15,12 @@ window.QUESTION_MODEL = [
 ]
 
 angular.module 'taxPartyOnlineApp'
-.controller 'QuestionsCtrl', ($scope, $routeParams) ->
+.controller 'QuestionsCtrl', ($scope, $routeParams, Pusher) ->
   if $routeParams.id
     $scope.question = _.find QUESTION_MODEL, (question) ->
       question.id == parseInt($routeParams.id)
+
+  chatWidget = new PusherChatWidget(Pusher,
+    appendTo: '#pusher-chat-widget'
+    chatEndPoint: '/chat'
+  )

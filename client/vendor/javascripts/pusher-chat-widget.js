@@ -65,6 +65,8 @@ PusherChatWidget.instances = [];
 
 /* @private */
 PusherChatWidget.prototype._chatMessageReceived = function(data) {
+  console.log ('chat message received');
+  console.log(data);
   var self = this;
 
   if(this._itemCount === 0) {

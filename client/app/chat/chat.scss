@@ -1,0 +1,31 @@
+.chat .message {
+  padding: 0 40px;
+  margin-bottom: 20px;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .chat-meta {
+    font-size: 16px;
+    margin-bottom: 5px;
+
+    small { font-size: 60%; }
+  }
+
+  .answer-label { display: none; }
+
+  .media-left { vertical-align: middle; }
+
+  .media-body {
+    padding: 10px;
+    border-radius: 5px;
+
+    &.answer {
+      background: #eef9ed;
+      .answer-label { display: inline; }
+    }
+  }
+}
