@@ -8,6 +8,7 @@ angular.module 'taxPartyOnlineApp', [
   'ui.bootstrap'
   'doowb.angular-pusher'
   'luegg.directives'
+  'angularMoment'
 ]
 .config ($routeProvider, $locationProvider) ->
   $routeProvider

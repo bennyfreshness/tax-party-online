@@ -1,9 +1,16 @@
 .chat-room(ng-controller='ChatCtrl')
   .question
-    p
-      span.label.label-warning Question
-    h1 {{question.subject}}
-    p {{question.details}}
+    .media
+      .media-left
+        img.avatar(ng-src='{{question.user.avatarUrl}}')
+      .media-body
+        p
+          span.label.label-warning Question
+          |  asked:
+          strong  {{question.user.displayName}}
+          small.text-muted  {{question.createdAt | amDateFormat:'ddd, hh:mma'}}
+        h1 {{question.subject}}
+        p {{question.details}}
 
   .chat-messages(scroll-glue-bottom='glued')
     .message.media(ng-repeat='message in messages')
@@ -13,7 +20,7 @@
         span.label.label-success.answer-label Answer
         p.chat-meta
           strong {{message.user.displayName}}
-          small.text-muted  {{message.createdAt}}
+          small.text-muted  {{message.createdAt | amDateFormat:'ddd, hh:mma'}}
         p {{message.body}}
 
   .chat-box

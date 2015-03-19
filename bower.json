@@ -16,7 +16,8 @@
     "angular-pusher": "latest",
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
-    "angular-scroll-glue": "~2.0.4"
+    "angular-scroll-glue": "~2.0.4",
+    "angular-moment": "~0.9.2"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
