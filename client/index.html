@@ -25,9 +25,16 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div ng-include='"components/navbar/navbar.html"'></div>
 
     <!-- Add your site or application content here -->
-    <div ng-view=""></div>
+    <div class="container-fluid ng-scope">
+      <div class="row"><!-- ngInclude: "components/navbar/sidebar.html" -->
+        <div ng-include="&quot;components/navbar/sidebar.html&quot;" class="col-sm-3 col-md-2 sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-2 col-lg-10 main" ng-view="">
+        </div>
+      </div>
+    </div>
 
     <script src="//js.pusher.com/2.2/pusher.min.js"></script>
     <script src="vendor/javascripts/pusher-chat-widget.js"></script>
@@ -53,6 +60,7 @@
         <script src="app/app.js"></script>
           <!-- injector:js -->
           <script src="app/main/main.js"></script>
+          <script src="app/questions/questions.js"></script>
           <script src="components/modal/modal.js"></script>
           <script src="components/navbar/navbar.js"></script>
           <!-- endinjector -->

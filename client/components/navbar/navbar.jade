@@ -1,12 +1,17 @@
-div.navbar.navbar-default.navbar-static-top(ng-controller='NavbarCtrl')
-  div.container
+div.navbar.navbar-inverse.navbar-default.navbar-fixed-top
+  div.container-fluid
     div.navbar-header
       button.navbar-toggle(type='button', ng-click='isCollapsed = !isCollapsed')
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') tax-party-online test
+      a.navbar-brand(href='/') Tax Party Online
+
+    p.navbar-text.navbar-right
+      a.navbar-link(href='#')
+        i.fa.fa-user
+        |  Sign In
 
     div#navbar-main.navbar-collapse.collapse(collapse='isCollapsed')
       ul.nav.navbar-nav

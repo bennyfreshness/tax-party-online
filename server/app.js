@@ -27,9 +27,9 @@ var root = __dirname + "/..";
 // --------------------------------------------------------------------
 var Pusher = require("pusher");
 var pusher = new Pusher({
-  appId: config.app_id,
-  key: config.key,
-  secret: config.secret
+  appId: process.env.app_id,
+  key: process.env.key,
+  secret: process.env.secret
 });
 
 // --------------------------------------------------------------------
@@ -117,6 +117,8 @@ var sanitiseInput = function(chatInfo) {
 server.listen(config.port, config.ip, function () {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
+
+app.locals.icon = function(icon){ return '<i class="fa fa-' + icon + '"></i>'; };
 
 // Expose app
 exports = module.exports = app;

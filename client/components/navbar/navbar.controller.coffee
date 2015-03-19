@@ -2,11 +2,7 @@
 
 angular.module 'taxPartyOnlineApp'
 .controller 'NavbarCtrl', ($scope, $location) ->
-  $scope.menu = [
-    title: 'Home'
-    link: '/'
-  ]
-  $scope.isCollapsed = true
+  $scope.questions = window.QUESTION_MODEL
 
   $scope.isActive = (route) ->
     route is $location.path()
