@@ -7,6 +7,7 @@ angular.module 'taxPartyOnlineApp', [
   'ngRoute'
   'ui.bootstrap'
   'doowb.angular-pusher'
+  'luegg.directives'
 ]
 .config ($routeProvider, $locationProvider) ->
   $routeProvider

@@ -1,4 +1,19 @@
-.chat .message {
+.chat-room {
+  height: 100vh;
+  margin-top: -50px;
+  overflow-y: hidden;
+}
+
+.chat-room .chat-messages {
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 1;
+  position: absolute;
+  margin-bottom: 55px;
+  bottom: 0;
+}
+
+.message {
   padding: 0 40px;
   margin-bottom: 20px;
 
@@ -30,6 +45,10 @@
   }
 }
 
-.chat .chat-box {
+.chat-room .chat-box {
   padding: 0 40px;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
 }

@@ -1,11 +1,11 @@
-.chat-room
+.chat-room(ng-controller='ChatCtrl')
   .question
     p
       span.label.label-warning Question
     h1 {{question.subject}}
     p {{question.details}}
 
-  .chat(ng-controller='ChatCtrl')
+  .chat-messages(scroll-glue-bottom='glued')
     .message.media(ng-repeat='message in messages')
       .media-left
         img.avatar(ng-src='{{message.user.avatarUrl}}')
@@ -16,14 +16,12 @@
           small.text-muted  {{message.createdAt}}
         p {{message.body}}
 
-
-    .chat-box
-      //- .btn-group
-      //-   label.btn.btn-default.active
-      //-     input(type='radio', ng-model='newMessage.type', btn-radio='comment', checked)
-      //-     | Comment
-      //-   label.btn.btn-default
-      //-     input(type='radio', ng-model='newMessage.type', btn-radio='answer')
-      //-     | Answer
-      textarea.form-control(rows=1, ng-model='newMessage.body', ng-keyup="$event.keyCode == 13 && !$event.shiftKey && sendMessage(newMessage)")
-      {{newMessage}}
+  .chat-box
+    //- .btn-group
+    //-   label.btn.btn-default.active
+    //-     input(type='radio', ng-model='newMessage.type', btn-radio='comment', checked)
+    //-     | Comment
+    //-   label.btn.btn-default
+    //-     input(type='radio', ng-model='newMessage.type', btn-radio='answer')
+    //-     | Answer
+    textarea.form-control(rows=1, ng-model='newMessage.body', ng-keyup="$event.keyCode == 13 && !$event.shiftKey && sendMessage(newMessage)")

@@ -5,6 +5,8 @@ angular.module 'taxPartyOnlineApp'
 
   $scope.newMessage = {}
 
+  $scope.glued = true
+
   $scope.messages = [
     user:
       displayName: 'jonchay',
@@ -21,7 +23,10 @@ angular.module 'taxPartyOnlineApp'
     body: "I'm doing good! Busy filing that tax return!"
   ]
 
-  Pusher.subscribe('question', 'chat_message', (data) -> $scope.messages.push(data) )
+  Pusher.subscribe('question', 'chat_message', (data) ->
+    $scope.messages.push(data)
+    $scope.messages.shift() if $scope.messages.length > 20
+  )
 
   $scope.sendMessage = (message) ->
     return if message.body == ''
@@ -31,6 +36,6 @@ angular.module 'taxPartyOnlineApp'
         avatarUrl: 'http://static.sched.org/a3/949610/avatar.jpg.100x100px.jpg'
       type: 'comment'
       body: message.body
-    )
-    $scope.messages.shift() if $scope.messages.length > 20
+    ).success( -> $scope.glued = true )
+
     $scope.newMessage.body = ''
