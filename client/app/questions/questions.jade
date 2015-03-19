@@ -8,10 +8,22 @@
   .chat(ng-controller='ChatCtrl')
     .message.media(ng-repeat='message in messages')
       .media-left
-        img.avatar(ng-src='{{message.user.avatar_url}}')
+        img.avatar(ng-src='{{message.user.avatarUrl}}')
       .media-body(ng-class='{answer: message.type == "answer"}' )
         span.label.label-success.answer-label Answer
         p.chat-meta
-          strong {{message.user.display_name}}
-          small.text-muted  {{message.created_at}}
+          strong {{message.user.displayName}}
+          small.text-muted  {{message.createdAt}}
         p {{message.body}}
+
+
+    .chat-box
+      //- .btn-group
+      //-   label.btn.btn-default.active
+      //-     input(type='radio', ng-model='newMessage.type', btn-radio='comment', checked)
+      //-     | Comment
+      //-   label.btn.btn-default
+      //-     input(type='radio', ng-model='newMessage.type', btn-radio='answer')
+      //-     | Answer
+      textarea.form-control(rows=1, ng-model='newMessage.body', ng-keyup="$event.keyCode == 13 && !$event.shiftKey && sendMessage(newMessage)")
+      {{newMessage}}
